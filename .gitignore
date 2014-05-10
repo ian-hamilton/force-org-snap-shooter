@@ -1,0 +1,17 @@
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Maven
+log/
+target/
+pom.xml~
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+.metadata
+
