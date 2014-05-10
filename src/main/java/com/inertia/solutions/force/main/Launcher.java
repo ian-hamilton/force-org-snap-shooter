@@ -1,5 +1,6 @@
 package com.inertia.solutions.force.main;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,8 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * execution of the AOP application.
  */
 public final class Launcher {
-
-	private static final String QUIT = "Q";
+	private static Logger log = Logger.getLogger(Launcher.class);
 
 	/**
 	 * Instantiates a new launcher set to
@@ -33,10 +33,12 @@ public final class Launcher {
 	 * @param args the arguments
 	 */
 	public static void main(final String[] args) {
+		log.info("******** Force Snap Shooter Started **********");		
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfiguration.class);
 
 
 		((AnnotationConfigApplicationContext) ctx).close();
+		log.info("******** Force Snap Shooter Complete **********");
 	}
 
 }
