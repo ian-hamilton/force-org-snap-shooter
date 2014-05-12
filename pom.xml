@@ -2,22 +2,24 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
 	<groupId>com.inertia.solutions.spring.aop</groupId>
 	<artifactId>force-org-snap-shooter</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>force-org-snap-shooter</name>
 
 	<properties>
-
+		<java-version>1.7</java-version>
+		<maven-compile-version>3.1</maven-compile-version>
+		
 		<junit-version>4.11</junit-version>
 		<mockito-version>1.9.5</mockito-version>
 		<jacoco-version>0.6.3.201306030806</jacoco-version>
 
 		<spring-version>3.2.4.RELEASE</spring-version>
 		<log4j-version>1.2.14</log4j-version>
+		<httpclient-version>3.1</httpclient-version>
 
 		<jacoco.class.coverage>0.97</jacoco.class.coverage>
 		<jacoco.method.coverage>0.96</jacoco.method.coverage>
@@ -45,6 +47,11 @@
 			<version>${log4j-version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${httpclient-version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -65,8 +72,13 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compile-version}</version>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

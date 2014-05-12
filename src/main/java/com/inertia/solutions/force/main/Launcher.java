@@ -4,6 +4,9 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.inertia.solutions.force.service.SalesforceService;
+import com.inertia.solutions.force.service.impl.SalesforceServiceImpl;
+
 
 
 
@@ -35,7 +38,16 @@ public final class Launcher {
 	public static void main(final String[] args) {
 		log.info("******** Force Snap Shooter Started **********");		
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfiguration.class);
-
+		SalesforceService salesforceService = (SalesforceService)ctx.getBean(SalesforceServiceImpl.class);
+		
+		try {
+			salesforceService.openConnection();
+			
+			salesforceService.closeConnection();
+		} catch (Exception e) {
+			log.error("Connection cannot be opened", e);
+		} 
+		
 
 		((AnnotationConfigApplicationContext) ctx).close();
 		log.info("******** Force Snap Shooter Complete **********");
