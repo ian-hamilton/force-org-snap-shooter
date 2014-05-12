@@ -20,7 +20,4 @@ public interface SalesforceService {
 	 */
 	public void openConnection() throws HttpException, IOException;
 	
-	public void closeConnection();
-	
-	
 }

@@ -42,8 +42,6 @@ public final class Launcher {
 		
 		try {
 			salesforceService.openConnection();
-			
-			salesforceService.closeConnection();
 		} catch (Exception e) {
 			log.error("Connection cannot be opened", e);
 		} 
